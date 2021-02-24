@@ -1,0 +1,7 @@
+{
+  id: @cheese.id,
+  name: @cheese.name,
+  price: @cheese.price,
+  image_url: @cheese.image_url,
+  description: @cheese.description,
+}

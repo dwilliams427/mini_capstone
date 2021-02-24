@@ -1,0 +1,7 @@
+{
+  id: @megapants.id,
+  name: @megapants.name,
+  price: @megapants.price,
+  image_url: @megapants.image_url,
+  description: @megapants.description,
+}

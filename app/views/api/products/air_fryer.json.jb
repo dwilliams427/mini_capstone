@@ -1,0 +1,7 @@
+{
+  id: @air_fryer.id,
+  name: @air_fryer.name,
+  price: @air_fryer.price,
+  image_url: @air_fryer.image_url,
+  description: @air_fryer.description,
+}
