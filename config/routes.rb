@@ -9,6 +9,14 @@ Rails.application.routes.draw do
     get "/air_fryer" => "products#air_fryer"
     get "/cheese" => "products#cheese"
 
+    #users
+    post "/users", controller: "users", action: "create"
+
+    #sessions
+    post "/sessions", controller: "sessions", action: "create"
+    # get "/sessions", controller: "sessions", action: "create"
+
+
     #products
     #segment param
     get "/single_product/:product" => "products#get_single_product"

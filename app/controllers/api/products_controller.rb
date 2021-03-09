@@ -32,8 +32,12 @@ class Api::ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
-    render "index.json.jb"
+    if current_user
+      @product = Product.all
+      render "index.json.jb"
+    else
+      render json: []
+    end
   end
 
   def show

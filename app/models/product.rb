@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   #replaces model methods
   belongs_to :supplier
+  has_many :orders
 
   #VALIDATIONS
   # validates :name, presence: true
