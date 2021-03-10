@@ -6,8 +6,4 @@
   subtotal: order.subtotal,
   tax: order.tax,
   total: order.total,
-
-# total: order.total,
-# subtotal: order.subtotal,
-# tax: order.tax,
 }

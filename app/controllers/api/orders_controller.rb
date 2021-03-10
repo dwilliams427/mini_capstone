@@ -1,16 +1,13 @@
 class Api::OrdersController < ApplicationController
+  #checks current user before running any action method
+  before_action :authenticate_user
+
   def index
-    # if current_user
     @order = current_user.orders
     render "index.json.jb"
-    # else
-    #   render json: [message: "must be logged in"]
-    # end
   end
 
   def create
-    # if current_user
-
     product = Product.find_by(id: params[:product_id])
 
     #compute total, subtotal, tax --> move to model after
@@ -37,14 +34,11 @@ class Api::OrdersController < ApplicationController
     # else
     #   render json: { errors: @order.errors.full_messages }, status: 406                       #sad path
     # end
-    # else
-    #   render json: []
-    # end
   end
 
   def show
     order_id = params[:id]
-    @order = current_user.orders.find(order_id)
+    @order = Order.find(order_id)
     render "show.json.jb"
   end
 end
