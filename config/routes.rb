@@ -9,13 +9,17 @@ Rails.application.routes.draw do
     get "/air_fryer" => "products#air_fryer"
     get "/cheese" => "products#cheese"
 
+    #orders
+    post "/orders", controller: "orders", action: "create"
+    get "/orders", controller: "orders", action: "index"
+    get "/orders/:id", controller: "orders", action: "show"
+
     #users
     post "/users", controller: "users", action: "create"
 
     #sessions
     post "/sessions", controller: "sessions", action: "create"
     # get "/sessions", controller: "sessions", action: "create"
-
 
     #products
     #segment param
@@ -54,5 +58,21 @@ Rails.application.routes.draw do
 
     #RESTful delete
     delete "/suppliers/:id", controller: "suppliers", action: "destroy"
+
+    #orders
+    #RESTful index
+    get "/suppliers", controller: "suppliers", action: "index"
+
+    #RESTful show
+    # get "/suppliers/:id", controller: "suppliers", action: "show"
+
+    #RETSful create
+    post "/suppliers", controller: "suppliers", action: "create"
+
+    #RESTful update
+    # patch "/suppliers/:id", controller: "suppliers", action: "update"
+
+    #RESTful delete
+    # delete "/suppliers/:id", controller: "suppliers", action: "destroy"
   end
 end

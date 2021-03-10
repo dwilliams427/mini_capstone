@@ -1,0 +1,5 @@
+# @order.map do |ord|
+#   render partial: "order.json.jb", locals: { order: ord }
+# end
+
+render partial: "order.json.jb", locals: { order: @order }
