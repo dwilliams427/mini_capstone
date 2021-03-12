@@ -11,4 +11,5 @@
   inventory: product.inventory,
   supplier_id: product.supplier_id,
   supplier_name: product.supplier.name,
+  categories: product.categories,
 }

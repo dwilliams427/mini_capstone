@@ -2,6 +2,8 @@ class Product < ApplicationRecord
   #replaces model methods
   belongs_to :supplier
   has_many :orders
+  has_many :category_products
+  has_many :categories, through: :category_products
 
   #VALIDATIONS
   # validates :name, presence: true
@@ -20,6 +22,15 @@ class Product < ApplicationRecord
 
   # validates :description, presence: true
   # validates :description, uniqueness: true
+
+  # this helper method eleminates the following method
+  # has_many :categories, through: :category_products
+  # irrelevant
+  # def categories
+  #   category_products.map do |product_category|
+  #     product_category.category
+  #   end
+  # end
 
   #EXAMPLE MODEL METHODS
   # def supplier

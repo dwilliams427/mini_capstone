@@ -15,6 +15,10 @@ class Api::ProductsController < ApplicationController
 
   def index
     @product = Product.all
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @product = category.products
+    end
     render "index.json.jb"
   end
 
@@ -43,8 +47,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def update
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
+    @product = Product.find_by(id: params[:id])
 
     @product.name = params[:name] || @product.name
     # @product.image_url = params[:image_url] || @product.image_url
@@ -61,10 +64,12 @@ class Api::ProductsController < ApplicationController
   end
 
   def destroy
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
+    @product = Product.find_by(id: params[:id])
 
-    @product.destroy
-    render json: { message: "deleted product" }
+    if @product.destroy
+      render json: { message: "deleted product" }
+    else
+      render json: { errors: @product.errors.full_messages }, status: 406                       #sad path
+    end
   end
 end

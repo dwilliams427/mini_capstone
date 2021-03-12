@@ -41,4 +41,14 @@ class Api::OrdersController < ApplicationController
     @order = Order.find(order_id)
     render "show.json.jb"
   end
+
+  def destroy
+    @order = Order.find_by(id: params[:id])
+
+    if @order.destroy
+      render json: { message: "deleted order" }
+    else
+      render json: { errors: @order.errors.full_messages }, status: 406                       #sad path
+    end
+  end
 end

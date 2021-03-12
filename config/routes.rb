@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post "/orders", controller: "orders", action: "create"
     get "/orders", controller: "orders", action: "index"
     get "/orders/:id", controller: "orders", action: "show"
+    delete "/orders/:id", controller: "orders", action: "show"
 
     #users
     post "/users", controller: "users", action: "create"
